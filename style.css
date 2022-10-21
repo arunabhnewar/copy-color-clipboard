@@ -47,7 +47,7 @@ button:hover {
     transition: 0.5s ease-in-out;
 }
 
-input[type='text']:disabled {
+input[type='text']{
     margin-top: 10px;
     padding: 5px 5px;
     outline: 0;
