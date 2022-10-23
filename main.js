@@ -18,13 +18,13 @@ function myHexaBgColor() {
     changeBtn.addEventListener('click', function () {
         const myBgColor = hexaColorGenerate();
         content.style.background = myBgColor;
-        output.value = myBgColor;
+        output.value = myBgColor.substring(1);
     })
 
 
     // Step 5 - handle the copy button click event
     copyBtn.addEventListener('click', function () {
-        window.navigator.clipboard.writeText(output.value);
+        window.navigator.clipboard.writeText(`#${output.value}`);
 
         if (div !== null) {
             div.remove();
@@ -33,7 +33,7 @@ function myHexaBgColor() {
 
         // Step 11 - Prevent copying hex code if it is not valid
         if (isHexValid(output.value)) {
-            toastMessage(`${output.value} copied!!`)
+            toastMessage(`#${output.value} copied!!`)
         } else {
             alert('Invalid Color Code')
         }
@@ -44,8 +44,12 @@ function myHexaBgColor() {
     output.addEventListener('keyup', function (e) {
         const color = e.target.value;
 
-        if (color && isHexValid(color)) {
-            content.style.background = color;
+        if (color) {
+            output.value = color.toUpperCase();
+
+            if (isHexValid(color)) {
+                content.style.background = `#${color}`;
+            }
         }
     })
 }
@@ -91,10 +95,10 @@ function toastMessage(msg) {
  */
 
 function isHexValid(color) {
-    if (color.length !== 7) return false;
-    if (color[0] !== '#') return false;
+    if (color.length !== 6) return false;
+    // if (color[0] !== '#') return false;
 
-    color = color.substring(1);
+    // color = color.substring(1);
     return /^[0-9A-Fa-f]{6}$/i.test(color)
 }
 

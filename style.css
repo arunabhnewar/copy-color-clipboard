@@ -47,28 +47,60 @@ button:hover {
     transition: 0.5s ease-in-out;
 }
 
+.color_code {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+
+.input_icon {
+    position: absolute;
+    background: #ddd;
+    color: #4285F4;
+    top: 19px;
+    left: 17px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
 input[type='text']{
-    margin-top: 10px;
-    padding: 5px 5px;
+    margin-top: 3px;
+    padding: 5px 28px;
     outline: 0;
     border: 1px solid #000;
     border-radius: 4px;
     font-weight: 700;
     font-size: 16px;
     width: 150px;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
+.output {
+    margin-left: 16px;
+}
+
+/* .output:focus {
+    outline: 0;
+    border: 0;
+} */
+
 .copy_btn {
-    padding: 10px 20px;
+    padding: 5px 20px;
     margin: 16px 0;
     cursor: pointer;
     background: #fff;
     color: #000;
     font-size: 16px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     border-radius: 4px;
     width: 143px;
     text-align: center;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .toast-message {
