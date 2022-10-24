@@ -12,13 +12,20 @@ function myHexaBgColor() {
     const content = document.getElementById('content');
     const changeBtn = document.getElementById('change_btn');
     const output = document.getElementById('output');
-    const copyBtn = document.getElementById('copy-btn')
+    const output2 = document.getElementById('output2');
+    const copyBtn = document.getElementById('copy-btn');
+    const copyBtn2 = document.getElementById('copy-btn2')
 
     // Step 4 - Handle the click event
     changeBtn.addEventListener('click', function () {
-        const myBgColor = hexaColorGenerate();
-        content.style.background = myBgColor;
-        output.value = myBgColor.substring(1);
+
+        const bgColor = decimalColorGenerate();
+        const hex = hexaColorGenerate(bgColor);
+        const rgb = rgbColorGenerate(bgColor);
+
+        content.style.background = hex;
+        output.value = hex.substring(1);
+        output2.value = rgb;
     })
 
 
@@ -55,14 +62,42 @@ function myHexaBgColor() {
 }
 
 
-// Step 2 - Random color generator function
-function hexaColorGenerate() {
+// step 12 - refactor the color generator function
+// Function 1 - generate three random decimal number for red, green and blue
+function decimalColorGenerate() {
     const red = Math.floor(Math.random() * 255);
     const green = Math.floor(Math.random() * 255);
     const blue = Math.floor(Math.random() * 255);
 
-    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
+    return {
+        red,
+        green,
+        blue
+    }
 }
+
+
+
+// Step 2 - Random color generator function
+// Function 2 - generate hex color code
+function hexaColorGenerate({ red, green, blue }) {
+
+    const getTwoCode = (value) => {
+        const hex = value.toString(16);
+        return hex.length === 1 ? `0${hex}` : hex;
+    }
+
+
+    return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase()
+}
+
+
+// function 3 - generate rgba color code
+function rgbColorGenerate({ red, green, blue }) {
+
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
 
 
 // Step 6 - Activate toast message
@@ -105,3 +140,11 @@ function isHexValid(color) {
 
 
 
+
+// step 13 - update color code to display rbg colors
+
+// step 14 - create hex to rgb function
+
+// step 15 - update change handler
+
+// step 16 - implement copy function

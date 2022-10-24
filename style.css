@@ -76,12 +76,17 @@ input[type='text']{
     border-radius: 4px;
     font-weight: 700;
     font-size: 16px;
-    width: 150px;
+    width: 200px;
+    background: #FFF;
     box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .output {
     margin-left: 16px;
+}
+
+.output2 {
+    margin-left: 20px;
 }
 
 /* .output:focus {
@@ -90,7 +95,7 @@ input[type='text']{
 } */
 
 .copy_btn {
-    padding: 5px 20px;
+    padding: 5px 10px;
     margin: 16px 0;
     cursor: pointer;
     background: #fff;
@@ -98,7 +103,7 @@ input[type='text']{
     font-size: 16px;
     /* border: 1px solid #000; */
     border-radius: 4px;
-    width: 143px;
+    width: 63px;
     text-align: center;
     box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
