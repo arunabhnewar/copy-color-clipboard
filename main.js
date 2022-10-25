@@ -47,6 +47,24 @@ function myHexaBgColor() {
     })
 
 
+    // step 16 - implement copy function
+    copyBtn2.addEventListener('click', function () {
+        window.navigator.clipboard.writeText(`${output2.value}`);
+
+        if (div !== null) {
+            div.remove();
+            div = null
+        }
+
+        // Step 11 - Prevent copying hex code if it is not valid
+        if (isHexValid(output2.value)) {
+            toastMessage(`${output2.value} copied!!`)
+        } else {
+            alert('Invalid Color Code')
+        }
+    })
+
+
     // Step 10 - implement change handler on input field
     output.addEventListener('keyup', function (e) {
         const color = e.target.value;
@@ -56,6 +74,9 @@ function myHexaBgColor() {
 
             if (isHexValid(color)) {
                 content.style.background = `#${color}`;
+
+                // step 15 - update change handler
+                output2.value = hexToRgb(color)
             }
         }
     })
@@ -98,6 +119,22 @@ function rgbColorGenerate({ red, green, blue }) {
     return `rgb(${red}, ${green}, ${blue})`;
 }
 
+
+
+/**
+ * convert hex color to rgb
+ * @param {string} hex
+ */
+// step 14 - create hex to rgb function
+function hexToRgb(hex) {
+    const red = parseInt(hex.slice(0, 2), 16)
+    const green = parseInt(hex.slice(2, 4), 16)
+    const blue = parseInt(hex.slice(4), 16)
+
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+console.log(hexToRgb('FFFFFF'));
 
 
 // Step 6 - Activate toast message
@@ -143,8 +180,7 @@ function isHexValid(color) {
 
 // step 13 - update color code to display rbg colors
 
-// step 14 - create hex to rgb function
 
-// step 15 - update change handler
 
-// step 16 - implement copy function
+
+
